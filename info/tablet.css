@@ -1,0 +1,120 @@
+body{
+ color:#000;font-family:"trebuchet ms", tahoma, arial, helvetica, sans-serif;margin-top:0;padding:0;text-align:center; background-color:#fff;
+}
+
+.clear{
+  clear: both;
+}
+
+.content_wrapper{
+  width: 100%;
+  text-align: center;
+}
+#content{
+  margin: auto;
+  width: 90%;
+  text-align: left;
+}
+
+#footer{
+  margin-top: 33px;
+  margin-bottom: 0px;
+  height: 67px;
+  background-color: #333;
+}
+
+.logo{
+  margin-top: 28px;
+  margin-bottom: 24px;
+  font-size: 3.4375em;
+}
+
+.navbar{
+  height: 60px;
+  background: #333;
+}
+
+.hero{
+  height: 600px;
+  background-color: #999;
+  margin-bottom: 24px;
+}
+
+.block1{
+  max-width: 440px;
+  width: 47%;
+  float: left;
+  border-top: 0px solid #999;
+  border-right: 1px solid #999;
+  border-bottom: 0px solid #999;
+  border-left: 0px solid #999;
+  padding-bottom: 0px;
+  padding-right: 3%;
+  margin-bottom: 0px;
+}
+.block1 .b1_image_block{
+  float: left;
+  min-height: 100px;
+}
+.block1 .b1_image{
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  width: 120px;
+}
+
+.block2{
+  max-width: 440px;
+  width: 47%;
+  float: right;
+  padding-left: 10px;
+}
+.block2 .b2_header{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+***
+
+#sub_nav {margin-left:auto;margin-right:auto;height:25px;width:500px;text-align:center;margin-top:20px;}
+.sub_btn a {text-align:center;font-size:11px;color:#FFCC00;margin-right:30px;height:22px;float:left;text-decoration:none;position:relative;top:3px;}
+.sub_btn_on a {text-align:center;font-size:11px;color:#FFCC00;margin-right:30px;background-image:url(images/sub_nav_bg.png);width:102px;height:19px;float:left;text-decoration:none;padding-top:3px;}
+
+
+
+ .background {width:800px; background-position:top middle;
+	z-index: -5000;background-repeat:no-repeat;}
+	
+#outer_wrap {width: 100%;height: 100%; padding: 0;  vertical-align: middle; }
+#page_wrapper {width:705px;height:890px;position:absolute;left:50%;top:50%;
+margin-left:-353px;margin-top:-445px;text-align:left;}
+#top_nav {padding:0px;width:100%;margin:0px auto;text-align:left;}
+#bg_image {float:right;position:absolute;top:120px;left:520px;}
+#image {float:left;margin-top:5%;margin-left:0px;width:80%;}
+.image2 {background-image:url(images/punnett_flies2.png);width:400px;height:166px;}
+#image3 {float:left;margin-top:5%;margin-left:0px;width:80%;}
+.size {width:100%;}
+#content_area {float:left;margin-top:5%;margin-left:40px;width:100%;}
+#content_area3 {float:left;margin-top:35px;margin-left:40px;width:635px;}
+.subheader {color:#000;font-size:1.5em;text-align:left;float:left;line-height:26px;width:600px;margin-top:20px;}
+.header {color:#000;font-size:2.1em;text-shadow: #333 0.1em 0.1em 0.2em;font-weight:200;line-height:1em;width:400px;text-align:left;} 
+.text {color:#000;font-size:14px;line-height:1.5em;margin-top:2%;width:85%;text-align:left;float:left;}
+.text2 {color:#000;font-size:14px;line-height:1.5em;margin-top:10%;width:85%;text-align:left;float:left;padding:5px;}
+.text3 {color:#000;font-size:16px;line-height:23px;margin-top:10px;width:85%;float:left;}
+.img_credit {color:#333;font-size:9px;line-height:11px;margin-bottom:10px;width:100%;float:left;margin-right:5%;font-family:arial, helvetica, sans-serif;}
+.more a {display:none;}
+.more2 {display:none;}
+
+p {font-size:14px;line-height:23px;}
+.start {float:left;}
+div.bottom_fixed_space{line-height:100px;height:100px;}
+#bottom_nav{margin-bottom:0;padding:0;text-align:center;position:fixed;bottom:0;display:block;background-image:url(images/bg_navbottom.png);background-repeat:repeat-x;width:100%;height:48px;left:0;bottom:0;z-index:500;}
+#bottom_nav2{margin-bottom:0;padding:0;text-align:center;position:fixed;bottom:0;display:block;background-image:url(images/bg_navbottom2.png);background-repeat:repeat-x;width:100%;height:48px;left:0;bottom:0;z-index:500;}
+#bottom_nav3{margin-bottom:0;padding:0;text-align:center;position:fixed;bottom:0;display:block;background-image:url(images/bg_navbottom3.png);background-repeat:repeat-x;width:100%;height:48px;left:0;bottom:0;z-index:500;}
+
+.footer{width:706px;height:48px;margin:10px auto;} 
+
+#top_nav {
+	width: 100% !important;
+}
