@@ -1,0 +1,891 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+
+	
+	<meta name="viewport" content="width=1200 user-scalable=no">
+	
+	<!-- stylesheets for the experiment> -->
+    <link rel="stylesheet" href="screen.css" type="text/css" />
+    <link id="size-stylesheet" rel="stylesheet" type="text/css" href="screen.css" />
+
+    <!-- navigation and new framework style sheets -->
+    <link rel="stylesheet" type="text/css" href="css/hidediv.css" />
+    <link rel="stylesheet" type="text/css" href="css/navstyle.css" />
+	
+	<!-- experiment style sheets -->
+	<link rel="stylesheet" href="experiment/css/info_help.css" />
+	<link rel="stylesheet" href="experiment/css/punnett_square.css" />
+		
+		
+	<link rel="stylesheet" type="text/css" href="experiment/css/flashblock.css"  media="screen" title="no title" charset="utf-8"/>
+		
+
+		 <!--  my css-->
+		<style type="text/css">
+		  #wrapper2 {
+	    	position: relative;
+		    /*font-size: 20px;*/
+		    width: 1024px;
+		    height: 700px;
+		    margin-left: auto; 
+		    margin-right: auto;
+		}
+		
+		  </style>
+		
+
+	<!-- SoundManager  -->
+	<script type="text/javascript" src="experiment/js/libs/soundmanager2-nodebug-jsmin.js" charset="utf-8"></script>
+	<script type="text/javascript" src="experiment/js/libs/sm2ns.js" charset="utf-8"></script>
+	<script type="text/javascript" src="experiment/js/sfx.js" charset="utf-8"></script>
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="experiment/js/libs/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="experiment/js/libs/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="experiment/js/libs/jquery.ui.touch-punch.min.js"></script>
+	
+	<script type="text/javascript" src="experiment/js/libs/plugins.js"></script>
+	
+	<script type="text/javascript" src="experiment/js/models/psquare_model.js"></script>
+	
+	
+	<script type="text/javascript" src="experiment/js/controllers/soundplayer.js"></script>
+	
+	<script type="text/javascript" src="experiment/js/controllers/psquare.js"></script>
+	<script type="text/javascript" src="experiment/js/startactivity.js"></script>
+	<script type="text/javascript" src="experiment/js/controllers/psmaincontroller.js"></script>
+	<script type="text/javascript" src="experiment/js/controllers/apicontroller.js"></script>
+	<script type="text/javascript" src="experiment/js/controllers/genopheno.js"></script>
+	<script type="text/javascript" src="experiment/js/controllers/parentratio.js"></script>
+	<script type="text/javascript" src="experiment/js/controllers/keyboardinputcontroller.js"></script>
+	<script type="text/javascript" src="experiment/js/controllers/replaycontroller.js"></script>
+	
+	<!-- fake API -->
+	<script type="text/javascript" src="experiment/js/utils/fake_api.js"></script>
+	
+
+
+
+   <!-- SCRIPT FOR REACTIVE UI  -->
+   <script>
+
+        var isiPad = navigator.userAgent.match(/iPad/i) != null;
+        if(isiPad) {
+	      document.write('<script type="text/javascript" src="experiment/js/libs/webAudioApiForDesigners.js"><\/script>');
+		}else
+		{
+		}
+
+     
+      	$(window).load(function()
+		{	
+			// call only after all page elements have loaded
+
+			
+			function adjustStyle(width) {
+				
+		          width = parseInt(width);
+		          if (width <= 480) {
+		              $("#size-stylesheet").attr("href", "mobile.css");
+		          } else if ((width >= 481) && (width <= 801)) {
+		              $("#size-stylesheet").attr("href", "tablet.css");
+		          } else {
+		             $("#size-stylesheet").attr("href", "screen.css");
+		          }
+		      }
+
+
+			//if (typeof is_ie_lt9 !== 'undefined')
+			//{
+				//alert("here");
+			 $(function() {
+			          adjustStyle($(this).width());
+			          $(window).resize(function() {
+			              adjustStyle($(this).width());
+			          });
+			      }); 
+		
+		    adjustStyle($(this).width());
+		
+			// start the activity
+			startActivity();
+
+		});
+		
+    </script>
+
+
+	<title>Punnett Squares</title>
+
+
+</head>
+
+
+
+<!--  
+*********************************************************************************************************************
+main html body starts here
+*********************************************************************************************************************
+-->	
+<body class="body_background" id="top">
+	
+	
+
+    <!--top navigation tabs -->
+   	<div id="top_nav_wrap" style="visibility:hidden;">
+		<div id="top_nav">
+			 <!-- start with intro tab larger as intro page is our landing page and displays first -->
+			<a  id="introbutton" href="#top" onclick="clickedToGoToIntroSection()" class="introduction nav_on">Introduction</a>
+    		<a  id="expbutton"   href="#top" onclick="clickedToGoToExperimentSection()" class="experiment">Experiment</a>
+			<a  id="bkgbutton"   href="#top" onclick="clickedToGoToBkgSection()" class="background">Background</a>
+		</div>
+	</div>
+	
+	<!--bottom Google tabs / buttons -->
+	<div id="bottom_nav" style="visibility:hidden;">
+		<div class="footer">
+			<a href=""><img src="images/btn_journal.png" class="link btn_size" /></a>
+			<a href=""><img src="images/btn_notebook.png" class="link btn_size" /></a>
+		</div>
+	</div>
+
+   <!-- loading spinner icon -->
+   <div id="loadingIcon" style="visibility:visible;"></div>
+
+
+
+
+
+ 
+<!--  
+*********************************************************************************************************************
+introduction page - pageOne 
+*********************************************************************************************************************
+-->
+<div id ="pageOne" class="hideTheDiv" >
+	<div class="content_wrapper"><div id="content">
+
+
+	<div id="content_area">
+
+		<div class="header">Punnett Squares</div>
+
+	<div class="clear"></div>
+		<div class="text">The Punnett Square is a valuable tool for determining the probability 
+	of the parents' genetic traits being passed to their offspring. 
+	The genes for some traits only have two forms, or alleles, one of which can be dominant and the other recessive. To determine the possible outcomes when parents with these two different alleles mate we use a Monohybrid Cross Punnett square.
+
+	 <p>
+
+
+
+	<div class="clear"></div><div id="image"><img src="images/punnett_table2.png" width="450" class="size" /></div></div>
+
+
+
+
+	<div class="text2">Using the body color trait of fruit flies, see if you can complete a set of Monohybrid Cross Punnett squares. Create one Punnett square for each of the possible combinations of dominant (B) and recessive (b) alleles in both the parents and the offspring.
+
+	<p><a href="#top" onclick="clickedToGoToExperimentSection()"><img src="images/btn_start2.png" class="btn_size"></a></p>
+	<div style="text-align:right" class="image2"></div>
+	</div>
+
+	</div>
+
+	<div class="bottom_fixed_space">&nbsp;</div>
+
+	  </div>
+	</div>
+
+	
+</div>
+
+
+
+
+
+<!--  
+*********************************************************************************************************************
+experiment page - pageTwo -
+*********************************************************************************************************************
+-->
+<div id="pageTwo" class="hideTheDiv" >
+	<div id="wrapper2" > 
+		
+		<div id="game" >
+
+
+
+				<div id="main_area">
+
+
+					<div id="displayText"></div>
+
+					<div id="select_tray"></div>
+
+					<div id="circle_hilite"></div>
+					<div id="button_0"></div>
+					<div id="button_1"></div>
+					<div id="button_2"></div>
+					<div id="button_3"></div>
+					<div id="button_4"></div>
+
+
+					<div id="bottom_blue_help_button"></div>
+					<div id="bottom_orange_help_button"></div>
+
+
+
+
+					<div id="show_flys_button"></div>
+
+					<div id="cycle_display"></div>
+
+					<div id="letter_button_hilight"></div>
+					<div id="a_letter_button"></div>
+					<div id="A_letter_button"></div>
+
+
+					<div id="AA_letter_button"></div>
+					<div id="Aa_letter_button"></div>
+					<div id="aa_letter_button"></div>
+
+					<div id="check_answers_button_dim"></div>	
+					<div id="check_answers_button"></div>
+					<div id="reset_round_button_dim"></div>
+					<div id="reset_round_button"></div>
+
+					<div id="replay_game_again_button"></div>
+
+
+					<div id="round_indicator"></div>
+					<div id="round_indicator_glows"></div>
+
+					<!--****** top row ********************************************************************-->
+					<div id="psquare_1" class="psquare">
+
+						<div id="pheno_box_1" class="pheno_box">
+							    <div class="pheno_hilite"></div>
+								<div class="geno_left">1</div>
+								<div class="geno_middle">3</div>
+							    <div class="geno_right">4</div>	
+
+								<div class="pheno_left">1</div>
+								<div class="pheno_right">4</div>	    
+						</div>
+						<!-- <div class="psquare" ></div>-->
+						
+						<div class="outside_textbox outside_topleft"></div>
+					    <div class="outside_textbox outside_topright"></div>
+					    <div class="outside_textbox outside_lefttop"></div>
+						<div class="outside_textbox outside_leftbot"></div>
+
+						<div class="incorrect_hilite"></div>
+
+						<div class="inside_textbox  inside_topleft"></div>
+						<div class="inside_textbox  inside_topright"></div>
+						<div class="inside_textbox  inside_botleft"></div>
+						<div class="inside_textbox  inside_botright"></div>	
+
+
+						<div class="error_display"></div>	
+
+						<!-- flys -->
+						<div class="outside_leftfly flyoverlay"></div>
+						<div class="outside_topfly flyoverlay"></div>
+
+						<div class="top_leftfly flyoverlay"></div>
+						<div class="top_rightfly flyoverlay"></div>
+
+						<div class="bot_leftfly flyoverlay"></div>
+						<div class="bot_rightfly flyoverlay"></div>
+
+					</div>
+
+
+					<div id="psquare_2" class="psquare">
+
+						<div id="pheno_box_2" class="pheno_box">
+							    <div class="pheno_hilite"></div>
+								<div class="geno_left">1</div>
+								<div class="geno_middle">3</div>
+							    <div class="geno_right">4</div>	
+
+								<div class="pheno_left">1</div>
+								<div class="pheno_right">4</div>	    
+						</div>
+						<!--<div class="psquare" ></div>-->
+						<div class="outside_textbox outside_topleft"></div>
+						<div class="outside_textbox outside_topright"></div>
+						<div class="outside_textbox outside_lefttop"></div>
+				        <div class="outside_textbox outside_leftbot"></div>
+
+				        <div class="incorrect_hilite"></div>
+
+						<div class="inside_textbox  inside_topleft"></div>
+						<div class="inside_textbox  inside_topright"></div>
+						<div class="inside_textbox  inside_botleft"></div>
+						<div class="inside_textbox  inside_botright"></div>
+
+
+
+						<div class="error_display"></div>
+
+						<!-- flys -->
+						<div class="outside_leftfly flyoverlay"></div>
+						<div class="outside_topfly flyoverlay"></div>
+
+						<div class="top_leftfly flyoverlay"></div>
+						<div class="top_rightfly flyoverlay"></div>
+
+						<div class="bot_leftfly flyoverlay"></div>
+						<div class="bot_rightfly flyoverlay"></div>
+
+					</div>
+
+
+					<div id="psquare_3" class="psquare">
+						<div id="pheno_box_3" class="pheno_box">
+							    <div class="pheno_hilite"></div>
+								<div class="geno_left">1</div>
+								<div class="geno_middle">3</div>
+							    <div class="geno_right">4</div>	
+
+								<div class="pheno_left">1</div>
+								<div class="pheno_right">4</div>	    
+						</div>
+						<!--<div class="psquare" ></div>-->
+						<div class="outside_textbox outside_topleft"></div>
+						<div class="outside_textbox outside_topright"></div>
+						<div class="outside_textbox outside_lefttop"></div>
+					    <div class="outside_textbox outside_leftbot"></div>
+
+					     <div class="incorrect_hilite"></div>
+
+					    <div class="inside_textbox  inside_topleft"></div>
+						<div class="inside_textbox  inside_topright"></div>
+						<div class="inside_textbox  inside_botleft"></div>
+						<div class="inside_textbox  inside_botright"></div>
+
+
+
+						<div class="error_display"></div>
+
+						<!-- flys -->
+						<div class="outside_leftfly flyoverlay"></div>
+						<div class="outside_topfly flyoverlay"></div>
+
+						<div class="top_leftfly flyoverlay"></div>
+						<div class="top_rightfly flyoverlay"></div>
+
+						<div class="bot_leftfly flyoverlay"></div>
+						<div class="bot_rightfly flyoverlay"></div>
+
+					</div>
+
+
+					<!--****** middle row ********************************************************************-->
+					<div id="psquare_4" class="psquare">
+
+						<div id="pheno_box_4" class="pheno_box">
+							<div class="pheno_hilite"></div>
+							<div class="geno_left">1</div>
+							<div class="geno_middle">3</div>
+							<div class="geno_right">4</div>	
+
+							<div class="pheno_left">1</div>
+							<div class="pheno_right">4</div>	    
+						</div>
+						<!--<div class="psquare" ></div>-->		
+						<div class="outside_textbox outside_topleft"></div>
+						<div class="outside_textbox outside_topright"></div>
+						<div class="outside_textbox outside_lefttop"></div>
+					    <div class="outside_textbox outside_leftbot"></div>
+
+					    <div class="incorrect_hilite"></div>
+
+					    <div class="inside_textbox  inside_topleft"></div>
+						<div class="inside_textbox  inside_topright"></div>
+						<div class="inside_textbox  inside_botleft"></div>
+						<div class="inside_textbox  inside_botright"></div>
+
+
+
+						<div class="error_display"></div>
+
+						<!-- flys -->
+						<div class="outside_leftfly flyoverlay"></div>
+						<div class="outside_topfly flyoverlay"></div>
+
+						<div class="top_leftfly flyoverlay"></div>
+						<div class="top_rightfly flyoverlay"></div>
+
+						<div class="bot_leftfly flyoverlay"></div>
+						<div class="bot_rightfly flyoverlay"></div>
+
+					</div>
+
+
+					<div id="psquare_5" class="psquare">
+
+						<div id="pheno_box_5" class="pheno_box">
+							<div class="pheno_hilite"></div>
+							<div class="geno_left">1</div>
+							<div class="geno_middle">3</div>
+							<div class="geno_right">4</div>	
+
+							<div class="pheno_left">1</div>
+							<div class="pheno_right">4</div>	    
+						</div>
+						<!--<div class="psquare" ></div>-->				
+						<div class="outside_textbox outside_topleft"></div>
+						<div class="outside_textbox outside_topright"></div>
+						<div class="outside_textbox outside_lefttop"></div>
+						<div class="outside_textbox outside_leftbot"></div>
+
+						 <div class="incorrect_hilite"></div>
+
+						<div class="inside_textbox  inside_topleft"></div>
+						<div class="inside_textbox  inside_topright"></div>
+						<div class="inside_textbox  inside_botleft"></div>
+						<div class="inside_textbox  inside_botright"></div>
+
+
+
+						<div class="error_display"></div>
+
+
+						<!-- flys -->
+						<div class="outside_leftfly flyoverlay"></div>
+						<div class="outside_topfly flyoverlay"></div>
+
+						<div class="top_leftfly flyoverlay"></div>
+						<div class="top_rightfly flyoverlay"></div>
+
+						<div class="bot_leftfly flyoverlay"></div>
+						<div class="bot_rightfly flyoverlay"></div>
+
+					</div>
+
+
+					<div id="psquare_6" class="psquare">
+
+						<div id="pheno_box_6" class="pheno_box">
+							    <div class="pheno_hilite"></div>
+								<div class="geno_left">1</div>
+								<div class="geno_middle">3</div>
+							    <div class="geno_right">4</div>	
+
+								<div class="pheno_left">1</div>
+								<div class="pheno_right">4</div>	    
+						</div>
+						<!--<div class="psquare" ></div>-->
+
+						<div class="outside_textbox outside_topleft"></div>
+						<div class="outside_textbox outside_topright"></div>
+						<div class="outside_textbox outside_lefttop"></div>
+						<div class="outside_textbox outside_leftbot"></div>
+
+						 <div class="incorrect_hilite"></div>
+
+						<div class="inside_textbox  inside_topleft"></div>
+						<div class="inside_textbox  inside_topright"></div>
+						<div class="inside_textbox  inside_botleft"></div>
+						<div class="inside_textbox  inside_botright"></div>
+
+
+
+						<div class="error_display"></div>
+
+						<!-- flys -->
+						<div class="outside_leftfly flyoverlay"></div>
+						<div class="outside_topfly flyoverlay"></div>
+
+						<div class="top_leftfly flyoverlay"></div>
+						<div class="top_rightfly flyoverlay"></div>
+
+						<div class="bot_leftfly flyoverlay"></div>
+						<div class="bot_rightfly flyoverlay"></div>
+
+					</div>
+
+
+					<!--****** bottom row ********************************************************************-->
+					<div id="psquare_7" class="psquare">
+
+						<div id="pheno_box_7" class="pheno_box">
+							    <div class="pheno_hilite"></div>
+								<div class="geno_left">1</div>
+								<div class="geno_middle">3</div>
+								<div class="geno_right">4</div>	
+
+								<div class="pheno_left">1</div>
+								<div class="pheno_right">4</div>	    
+						</div>
+						<!--<div class="psquare" ></div>-->
+						<div class="outside_textbox outside_topleft"></div>
+						<div class="outside_textbox outside_topright"></div>
+						<div class="outside_textbox outside_lefttop"></div>
+						<div class="outside_textbox outside_leftbot"></div>
+
+						 <div class="incorrect_hilite"></div>
+
+						<div class="inside_textbox  inside_topleft"></div>
+						<div class="inside_textbox  inside_topright"></div>
+						<div class="inside_textbox  inside_botleft"></div>
+						<div class="inside_textbox  inside_botright"></div>
+
+
+
+						<div class="error_display"></div>
+
+						<!-- flys -->
+						<div class="outside_leftfly flyoverlay"></div>
+						<div class="outside_topfly flyoverlay"></div>
+
+						<div class="top_leftfly flyoverlay"></div>
+						<div class="top_rightfly flyoverlay"></div>
+
+						<div class="bot_leftfly flyoverlay"></div>
+						<div class="bot_rightfly flyoverlay"></div>
+					</div>
+
+					<div id="psquare_8" class="psquare">
+
+						<div id="pheno_box_8" class="pheno_box">
+							    <div class="pheno_hilite"></div>
+								<div class="geno_left">1</div>
+								<div class="geno_middle">3</div>
+							    <div class="geno_right">4</div>	
+
+								<div class="pheno_left">1</div>
+								<div class="pheno_right">4</div>	    
+						</div>
+						<!--<div class="psquare" ></div>-->
+						<div class="outside_textbox outside_topleft"></div>
+						<div class="outside_textbox outside_topright"></div>
+						<div class="outside_textbox outside_lefttop"></div>
+						<div class="outside_textbox outside_leftbot"></div>
+
+						 <div class="incorrect_hilite"></div>
+
+						<div class="inside_textbox  inside_topleft"></div>
+						<div class="inside_textbox  inside_topright"></div>
+						<div class="inside_textbox  inside_botleft"></div>
+						<div class="inside_textbox  inside_botright"></div>
+
+
+
+						<div class="error_display"></div>
+
+						<!-- flys -->
+						<div class="outside_leftfly flyoverlay"></div>
+						<div class="outside_topfly flyoverlay"></div>
+
+						<div class="top_leftfly flyoverlay"></div>
+						<div class="top_rightfly flyoverlay"></div>
+
+						<div class="bot_leftfly flyoverlay"></div>
+						<div class="bot_rightfly flyoverlay"></div>
+
+
+					</div>
+
+
+
+					<div id="psquare_9" class="psquare">
+						<div id="pheno_box_9" class="pheno_box">
+							    <div class="pheno_hilite"></div>
+								<div class="geno_left">1</div>
+								<div class="geno_middle">3</div>
+							    <div class="geno_right">4</div>	
+
+								<div class="pheno_left">1</div>
+								<div class="pheno_right">4</div>	    
+						</div>
+						<!--<div class="psquare" ></div>-->
+						<div class="outside_textbox outside_topleft"></div>
+						<div class="outside_textbox outside_topright"></div>
+						<div class="outside_textbox outside_lefttop"></div>
+						<div class="outside_textbox outside_leftbot"></div>
+
+						 <div class="incorrect_hilite"></div>
+
+						<div class="inside_textbox  inside_topleft"></div>
+						<div class="inside_textbox  inside_topright"></div>
+						<div class="inside_textbox  inside_botleft"></div>
+						<div class="inside_textbox  inside_botright"></div>
+
+
+
+						<div class="error_display"></div>
+
+						<!-- flys -->
+						<div class="outside_leftfly flyoverlay"></div>
+						<div class="outside_topfly flyoverlay"></div>
+
+						<div class="top_leftfly flyoverlay"></div>
+						<div class="top_rightfly flyoverlay"></div>
+
+						<div class="bot_leftfly flyoverlay"></div>
+						<div class="bot_rightfly flyoverlay"></div>
+
+					</div>	
+
+					<div id="fly_tray">
+						<div id="fly_screen">
+							<div id="topleft_hilite" class="largehilite"></div>
+							<div id="topleft_1" class="fly_tray_button">1</div>
+							<div id="topleft_2" class="fly_tray_button">2</div>
+							<div id="topleft_3" class="fly_tray_button">3</div>
+							<div id="topleft_4" class="fly_tray_button">4</div>
+							<div id="topleft_5" class="fly_tray_button">5</div>
+							<div id="topleft_6" class="fly_tray_button">6</div>
+
+							<div id="topright_hilite" class="smallhilite"></div>
+							<div id="topright_1" class="fly_tray_button">1</div>
+							<div id="topright_2" class="fly_tray_button">2</div>
+
+							<div id="botleft_hilite" class="smallhilite"></div>
+							<div id="botleft_1"  class="fly_tray_button">1</div>
+							<div id="botleft_2"  class="fly_tray_button">2</div>
+
+							<div id="botright_hilite"class="smallhilite"></div>
+							<div id="botright_1" class="fly_tray_button">1</div>
+							<div id="botright_2" class="fly_tray_button">2</div>					
+						</div>
+
+					</div>
+
+
+
+					<div id="help_panels_layer">
+
+						<div id="replay_from_end_screen"><div id="replay_from_end_screen_title"><BR>Select the round you would like to return to.</div>
+							<div id="replay_from_end_close_button"></div>
+							<div id="return_to_level_1_button"></div>
+							<div class="left_top_caption"><div class="left_top_caption_holder">Round 1</div></div>
+
+							<div id="return_to_level_2_button"></div>
+								<div class="right_top_caption"><div class="right_top_caption_holder">Round 2</div></div>
+							<div id="return_to_level_3_button"></div>
+						    <div class="left_bot_caption"><div class="left_bot_caption_holder">Round 3</div></div>
+							<div id="return_to_level_4_button"></div>
+							 <div class="right_bot_caption"><div class="right_bot_caption_holder">Round 4</div></div>
+							 <div id="bottom_caption"><div class="replay_from_end_screen_bottom_screen_message"><i>Genetic information in previous rounds may be rearranged.</i></div></div>
+						</div>
+
+						<div id="play_again_from_start_screen"><div id="replay_from_end_screen_title"><BR>Select the round you would like to begin work on.</div>
+							 <div id="start_at_level_1_button_dimmed"></div>
+							 <div id="start_at_level_2_button_dimmed"></div>
+							 <div id="start_at_level_3_button_dimmed"></div>
+							<div id="start_at_level_4_button_dimmed"></div>
+
+							 <div id="start_at_level_1_button"></div>
+								<div class="left_top_caption"><div class="left_top_caption_holder">Round 1</div></div>
+							 <div id="start_at_level_2_button"></div>
+									<div class="right_top_caption"><div class="right_top_caption_holder">Round 2</div></div>
+							 <div id="start_at_level_3_button"></div>
+							<div class="left_bot_caption"><div class="left_bot_caption_holder">Round 3</div></div>
+							<div id="start_at_level_4_button"></div>
+							<div class="right_bot_caption"><div class="right_bot_caption_holder">Round 4</div></div>
+							 <div id="bottom_caption"><div class="replay_from_end_screen_bottom_screen_message"><i>All previous rounds will be completed for you.</i></div></div>
+						</div>
+
+						<div id="threshold_screen"><div id="threshold_screen_close_button"></div><BR><BR><span style="font-size:20px;">Predicting the Parents.</span><BR><BR><BR>Now that you’ve completed the Punnett squares<BR>and ratios, can you use them to identify<BR>which pairings of parent genotypes <BR>produce offspring of a given phenotype ratio?<BR><BR>Look at the sets four sets of fly offspring<BR>and determine all the possible parent<BR>genotypes for each.<BR><BR>Record your observations and results in the Notebook<BR> and then see if you can answer<BR>all of the questions in the Journal.	
+						</div>
+
+						<div id="interface_help_screen">
+							<div id="info_bkg_boxes"></div>
+								<div id="top_blue_help_button"></div>
+								<div id="info_help_one">Click to select a letter or number choice.</div>
+								<div id="info_help_two">Click each space to enter letters and numbers.</div>
+								<div id="info_help_three">After round 1 is complete, you can click here to see phenotypes.</div>
+								<div id="info_help_four">Click Check Work when you have completed each round. Click Reset Round to start the round over.</div>
+						</div>
+
+
+						<div id="content_help_screen">
+							<div id="content_bkg_boxes"></div>
+							<div id="top_orange_help_button"></div>
+							<div id="content_help_one"> In round 1 enter both the of the paternal alleles in the horizontal cells and both maternal alleles in the vertical cells. The capital letter A will indicate dominant body color alleles and the lower case letter a will indicate recessive. Be sure to include all combinations of heterozygous dominant, heterozygous recessive, and homozygous for both parents.</div>
+
+							<div id="content_help_two">To complete each Punnett square in round 2 remember that each offspring’s genotype includes one paternal allele and one maternal allele. Combine alleles contributed by the parents in each row with each column to indicate the genotypes of all four possible offspring.</div>
+							<div id="content_help_three">In round 3 the genotype ratio (G) gives the number of heterozygous dominant genotypes to homozygous genotypes to heterozygous recessive genotypes, or AA:Aa:aa.The phenotype ratio (P) shows the number of one observable form of the trait (dark body color) to the other form (light body color). It can also be described as the number heterozygous dominant genotypes AND homozygous genotypes to heterozygous recessive genotypes, or (AA+Aa):aa.
+							</div>
+
+							<div id="content_help_four">In round 4 each of the sets of fly icons illustrates a group of offspring that show a particular phenotype ratio. Compare each set to your completed Punnett squares and determine what parent pairings are likely to have produced that group of offspring. Activate the fly button for an additional hint.</div>
+						</div>
+
+					</div>
+
+
+		  </div>
+	    </div>
+	    </div>
+
+		<div id="lightbox"></div>
+
+	</div>
+
+</div>
+
+
+
+
+
+<!--  
+*********************************************************************************************************************
+*********************************************************************************************************************
+background page - subsections follow - pageThree / lands on "Types of Muscles" section
+*********************************************************************************************************************
+*********************************************************************************************************************
+-->
+<div id="pageThree" class="hideTheDiv" >
+	<div class="clear"></div>
+
+	<div class="content_wrapper">
+
+	<div id="content">
+
+
+	<div id="sub_nav">
+
+	<div class="sub_btn_on"><a>Punnett Squares</a></div>
+	<div class="sub_btn"><a href="#top" onclick="clickedToGoToBkgTypesSection()">Types of Crosses</a></div>
+
+	</div>
+
+	<div class="clear"></div>
+
+
+
+	<div id="content_area">
+
+		<div class="header">Punnett Squares</div>
+
+	<div class="clear"></div>
+		<div class="text">
+	    <p>The Punnett square is a mathematical tool used by geneticists studying heredity to systematically show all the allelic combinations of parental gametes and to predict the offspring ratios.  Heredity is the passing of traits from parent to offspring. Traits are controlled by genes, which can have different forms called alleles. There are two alleles for every trait.
+
+	<p>For example, Gregor Mendel worked with pea plants that had a gene for pea seed color with two different alleles for pea seed color—an allele for yellow and an allele for green. When Mendel crossed a yellow-seeded pea plant with a green-seeded pea plant all the offspring of this cross had yellow seeds. Mendel determined that the yellow seed allele was dominant and the green recessive because even when the
+	alleles for both colors were present, the 
+	yellow allele hid the green allele.
+	<div class="more"><a href="bg2.html">more...</a></div>
+	<div class="clear"></div>
+
+	<div id="image"><img src="images/punnett_peas.png" width="450" class="size" /></div>
+	<div class="img_credit">Image: Martin Shields / Science Source. </br>Background Image: Glowimages/Getty Images </div>
+
+    
+	</div>
+
+
+
+
+	<div class="text2">English biologist Dr. Reginald Punnett developed a simple
+	system for predicting the ways in which alleles can combine, called a Punnett square. In a Punnett square, letters represents dominant and recessive alleles. An uppercase letter represents a dominant allele (Y), and a lowercase letter represents a recessive allele (y). Within each organism, haploid cells contains two alleles for every trait, one inherited from the female parent and one from the male parent. An organism is described differently based on the type of allele combination it has for 
+	a particular 
+	trait: allele.
+	 <img src="images/punnett_table1.png" class="image1" align="right" />
+	</div>
+	<div class="start"><a href="#top" onclick="clickedToGoToExperimentSection()"><img src="images/btn_start2.png" class="btn_size"></a></div>
+	</div>
+	<div class="bottom_fixed_space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+	  </div>
+	</div>
+    
+	
+</div>
+
+
+
+
+<!--  
+*********************************************************************************************************************
+subsection page - Skeletal Muscles
+*********************************************************************************************************************
+-->
+<div id="pageThree_types" class="hideTheDiv" >
+	
+	<div class="clear"></div>
+
+	<div class="content_wrapper">
+
+	<div id="content">
+
+
+	<div id="sub_nav">
+
+	<div class="sub_btn"><a href="#top" onclick="clickedToGoToBkgSection()">Punnett Squares</a></div>
+	<div class="sub_btn_on"><a >Types of Crosses</a></div>
+
+	</div>
+
+	<div class="clear"></div>
+
+
+
+	<div id="content_area">
+
+		<div class="header">Types of Crosses</div>
+
+	<div class="clear"></div>
+		<div class="text">
+	  <span class="subheader">Monohybrid Cross</span></br>
+	If only one trait is being considered in a genetic cross, the cross is called monohybrid. Because each parent has two alleles to pass on, the Punnett square for a monohybrid cross is two boxes tall to accommodate both maternal alleles, and two boxes wide to accommodate both paternal alleles. 
+	<div id="image">
+	<img src="images/punnett_table3.png" width="361" class="size" /></div>
+	<p> The heterozygous parent
+	  (Yy) can pass on the dominant allele (Y) or the recessive allele (y) so the first vertical box of the Punnett square is labeled Y and the second is labeled y. The homozygous dominant parent (YY) can pass on two of the dominant allele (Y) so both horizontal boxes are labeled Y. The resulting offspring are filled in accordingly.
+
+
+	<div class="clear"></div>
+	</div>
+
+
+	<div class="text2">
+	<span class="subheader">Ratios</span></br>
+	Allele combinations define the genotype, or the genetic makeup, of an organism for a particular trait. The phenotype is the physical trait that shows as a result of the particular genotype, like yellow or green color for peas. Given that multiple allele combinations result in the same phenotype, organisms may look alike but have different genotypes. 
+	Possible outcomes of a genetic cross can be described using either a genotype ratio and a phenotype ratio. The genotype ratio shows the number of heterozygous dominant genotypes to homozygous genotypes  to heterozygous recessive genotypes: YY:Yy:yy. A phenotype ratio shows the number of each observable version of the trait, so the first value shows the number of both the heterozygous dominant and homozygous genes while the second value shows just the number of heterozygous recessive genes: YY+Yy:yy.
+
+	Determining the parents of an individual offspring can be tricky when only the phenotype of the offspring is observable. But when the phenotypes of a group of offspring from the same parents is examined as a ratio, it becomes possible to narrow down the probable genotypes of those parents.</div>
+	<div class="img_credit">Background Image: Glowimages/Getty Images </div>
+	<div class="text3">
+	<span class="subheader">Dihybrid Cross</span></br>
+	If two traits are being considered in a genetic cross, the cross is called dihybrid. A Punnett square for a dihybrid cross is four boxes tall and four boxes wide because each parent can pass on four possible combinations of alleles. For example, a heterozygous parent (YyRr) can pass on the following combinations of alleles: (YR), (Yr), (yR), (yr). Each box of the Punnett square is labeled with one of these possible combinations of alleles.  
+	(Graphic of dihybrid cross: FPO below)
+	</div>
+
+	<div class="text">
+	 <div><img src="images/punnett_table4.png" width="517" class="size"/></div>
+	 </div>
+
+	 <div class="text2">
+	In this example the result is 9 Yellow Round peas, 3 Yellow wrinkled peas, 3 green Round peas, and 1 green wrinkled pea.  This can be described with a phenotype ratio of 9:3:3:1.
+	<div class="start"><a href="#top" onclick="clickedToGoToExperimentSection()"><img src="images/btn_start2.png" class="btn_size"></a></div>
+	</div>
+
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<div class="clear"></div>
+	</div>
+
+	</div>
+
+	<div class="bottom_fixed_space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+	  </div>
+	</div>
+	
+
+	
+</div>
+
+
+
+	<script src="js/navscript.js" type="text/javascript" charset="utf-8"></script> 
+	
+</body>
+</html>
