@@ -1,0 +1,882 @@
+
+/*
+  square top row top : 90px
+  square column 1 left :155px
+  h distance = 262?
+  v distance = 128?
+
+*/
+
+
+
+#displayText
+{
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    font-size:14px;
+    color:white;	
+	position: absolute;
+	width:1024px;
+	height:20px;
+	top:500px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#top_nav_bar
+{
+	position: absolute;
+    width:1024px;
+    height:42px;
+	background-image:url("../images/top_bar.png");
+	top:0px;
+	left:0px;
+}
+
+
+
+.largehilite{
+	position: absolute;
+    width:220px;
+    height:40px;
+	background-image:url("../images/long_parent_hilite.png");
+}
+
+.smallhilite{
+	position: absolute;
+    width:70px;
+    height:40px;
+	background-image:url("../images/small_parenthilite.png");
+}
+
+
+#topleft_hilite{
+	top:-5px;
+	left:114px;	
+	visibility:hidden;
+		
+}
+
+#topright_hilite{
+	top:-5px;
+	left:480px;
+	visibility:hidden;
+}
+
+#botleft_hilite{
+	top:50px;
+	left:117px;
+	visibility:hidden;
+}
+
+#botright_hilite{
+	top:50px;
+	left:480px;
+	visibility:hidden;
+}
+
+#topleft_1{
+	top:2px;
+	left:122px;
+}
+
+#topleft_2{
+	top:2px;
+	left:153px;
+}
+
+#topleft_3{
+	top:2px;
+	left:192px;
+}
+
+#topleft_4{
+	top:2px;
+	left:224px;
+}
+
+
+#topleft_5{
+	top:2px;
+	left:262px;
+}
+
+#topleft_6{
+	top:2px;
+	left:293px;
+}
+
+#topright_1{
+	top:2px;
+	left:485px;
+}
+
+#topright_2{
+	top:2px;
+	left:517px;
+}
+
+#botleft_1{
+	top:56px;
+	left:122px;	
+}
+
+#botleft_2{
+	top:56px;
+	left:153px;	
+}
+
+
+#botright_1{
+	top:56px;
+	left:485px;	
+}
+
+#botright_2{
+	top:56px;
+	left:517px;	
+}
+
+  
+.incorrect_hilite{
+    top:26px;
+	left:26px;
+	position: absolute;
+    width: 92px;
+    height: 91px;
+	background-image:url("../images/punnet_hilite.png");	
+	visibility:hidden;
+}
+
+.error_display{
+
+	top:56px;
+	left:38px;
+	position: absolute;
+	background-position: 0px 0px;
+    width: 66px;
+    height: 30px;
+	background-image:url("../images/error_message3.png");
+	cursor:pointer;
+	visibility:hidden;
+}
+
+#check_answers_button{
+	top:550px;
+	left:871px;
+	position: absolute;
+    width: 109px;
+    height: 29px;
+	background-image:url("../images/btn_check_reg.png");
+	visibility:hidden;
+	cursor:pointer;
+}
+
+#check_answers_button_dim{
+	top:550px;
+	left:871px;
+	position: absolute;
+    width: 109px;
+    height: 29px;
+	background-image:url("../images/btn_check_dim.png");
+}
+
+#replay_game_again_button{
+	top:480px;
+	left:871px;
+	position: absolute;
+    width: 109px;
+    height: 29px;
+	background-image:url("../images/green_buttons.png");
+	visibility:hidden;
+	cursor:pointer;
+}
+
+#round_indicator{
+	top:520px;
+	left:875px;
+	position: absolute;
+    width: 94px;
+    height: 23px;
+	background-image:url("../images/round_indicator.png");
+	/*cursor:pointer;*/
+}
+
+#round_indicator_glows{
+	top:520px;
+	left:875px;
+	position: absolute;
+	background-position: 0px 0px;
+    width: 94px;
+    height: 23px;
+	background-image:url("../images/round_indicator_glows.png");
+	visibility:hidden;
+}
+
+#reset_round_button{
+	top:590px;
+	left:871px;
+	position: absolute;
+    width: 109px;
+    height: 29px;
+	background-image:url("../images/btn_reset_reg.png");
+	cursor:pointer;
+	visibility:hidden;
+}
+
+#reset_round_button_dim{
+	top:590px;
+	left:871px;
+	position: absolute;
+    width: 109px;
+    height: 29px;
+	background-image:url("../images/btn_reset_dim.png");
+}
+
+#pheno_box_1{
+	visibility:hidden;
+}
+
+#pheno_box_2{
+  visibility:hidden;	
+}
+
+#pheno_box_3{
+  visibility:hidden;	
+}
+
+#pheno_box_4{
+  visibility:hidden;	
+}
+
+#pheno_box_5{
+  visibility:hidden;	
+}
+
+#pheno_box_6{
+  visibility:hidden;	
+}
+
+#pheno_box_7{
+	visibility:hidden;
+}
+
+#pheno_box_8{
+  visibility:hidden;	
+}
+
+#pheno_box_9{
+  visibility:hidden;	
+}
+
+.fly_tray_button{
+	position: absolute;
+    width: 27px;
+    height: 27px;
+	background-image:url("../images/color_bar_F.png");
+    /*background-position: -54px 0px; green is this*/
+    background-position: -54px 0px;
+    /*background-position: -162px 0px;*/
+	line-height:30px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor:pointer;
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    font-size:16px;
+    color:#330033;
+}
+
+/******************************** overlay flies ******************************/
+
+.flyoverlay{
+	position: absolute;
+    width: 32px;
+    height: 32px;
+	background-image:url("../images/fly_sprite.png");
+	background-position: 0px 0px;
+}
+
+.outside_leftfly{
+	top:55px;
+	left:-5px;
+	visibility:hidden;
+}
+
+.outside_topfly{
+ 	top:-5px;
+	left:55px;
+	visibility:hidden;	
+}
+
+.top_leftfly{
+  	top:36px;
+	left:33px;
+	visibility:hidden;
+}
+
+.top_rightfly{
+  	top:36px;
+	left:76px;
+	visibility:hidden;	
+}
+
+.bot_leftfly{
+ 	top:77px;
+	left:33px;
+	visibility:hidden;
+}
+
+.bot_rightfly{
+	top:77px;
+	left:76px;
+	visibility:hidden;
+}
+
+
+
+#cycle_display{
+	top:420px;
+	left:40px;
+	position: absolute;
+    width:32px;
+    height:32px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image:url("../images/HLrings.png");
+	cursor:pointer;	
+	visibility:hidden;
+}
+#show_flys_button{
+	top:500px;
+	left:33px;
+	position: absolute;
+    width: 47px;
+    height: 46px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image:url("../images/fly_toggle.png");
+	cursor:pointer;	
+	visibility:hidden;	
+}
+
+/**************************************************************/
+
+
+#circle_hilite
+{
+	top:106px;
+	left:31px;
+	position: absolute;
+    width: 49px;
+    height: 49px;
+	background-image:url("../images/circle_HL.png");
+	visibility:hidden;	
+}
+
+
+
+#button_0{
+	top:110px;
+	left:35px;
+	position: absolute;
+    width: 41px;
+    height: 41px;
+	background-image:url("../images/btn_0.png");
+	cursor:pointer;
+	visibility:hidden;
+}
+
+#button_1{
+   	top:160px;
+	left:35px;
+	position: absolute;
+    width: 41px;
+    height: 41px;
+	background-image:url("../images/btn_1.png");
+	cursor:pointer;	
+	visibility:hidden;
+}
+
+#button_2{
+	top:210px;
+	left:35px;
+	position: absolute;
+    width: 41px;
+    height: 41px;
+	background-image:url("../images/btn_2.png");
+	cursor:pointer;
+	visibility:hidden;
+}
+
+#button_3{
+   	top:260px;
+	left:35px;
+	position: absolute;
+    width: 41px;
+    height: 41px;
+	background-image:url("../images/btn_3.png");
+	cursor:pointer;	
+	visibility:hidden;
+}
+
+#button_4{
+	top:310px;
+	left:35px;
+	position: absolute;
+    width: 41px;
+    height: 41px;
+	background-image:url("../images/btn_4.png");
+	cursor:pointer;
+	visibility:hidden;
+}
+
+
+.pheno_box{
+    top:48px;
+	left:26px;/*was 126 */
+	position: absolute;
+    width: 108px;
+    height: 50px;
+	background-image:url("../images/genopheno.png");
+	/*visibility:hidden;*/	
+}
+
+.geno_left{
+  	top:0px;
+	left:18px;
+	position: absolute;
+    width: 22px;
+    height: 22px;
+    line-height:22px;
+	background-image:url("../images/circle_sprite_w_transparent.png");	
+	background-position: -46px 0px;
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    font-size:14px;
+    cursor:pointer;
+    /*visibility:hidden;*/
+}
+/* -46 is green...clear is zero red is 115 dark gray -130*/
+
+.geno_middle{
+  	top:0px;
+	left:51px;
+	position: absolute;
+    width: 22px;
+    height: 22px;
+    line-height:22px;
+	background-image:url("../images/circle_sprite_w_transparent.png");	
+	background-position: -46px 0px;
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    font-size:14px;
+    cursor:pointer;
+    /*visibility:hidden;*/
+}
+
+.geno_right{
+  	top:0px;
+	left:86px;
+	position: absolute;
+    width: 22px;
+    height: 22px;
+    line-height:22px;
+	background-image:url("../images/circle_sprite_w_transparent.png");	
+	background-position: -46px 0px;
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    font-size:14px;
+    cursor:pointer;
+    /*visibility:hidden;*/
+}
+
+
+.pheno_left{
+  	top:27px;
+	left:18px;
+	position: absolute;
+    width: 22px;
+    height: 22px;
+    line-height:22px;
+	background-image:url("../images/circle_sprite_w_transparent.png");	
+	background-position: -46px 0px;
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    font-size:14px;
+    cursor:pointer;
+    /*visibility:hidden;*/
+}
+
+.pheno_right{
+  	top:27px;
+	left:51px;
+	position: absolute;
+    width: 22px;
+    height: 22px;
+    line-height:22px;
+	background-image:url("../images/circle_sprite_w_transparent.png");	
+	background-position: -46px 0px;
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    font-size:14px;
+    cursor:pointer;
+    /*visibility:hidden;*/
+}
+
+
+#fly_screen{
+	top:30px;
+	left:65px;
+	position: absolute;
+    width: 545px;
+    height: 86px;
+	background-image:url("../images/fly_screen_K.png");
+	 visibility:hidden;
+}
+
+/*
+_______________________________________________________________
+buttons with letters 
+_______________________________________________________________
+*/
+
+#a_letter_button{
+	top:162px;
+	left:34px;
+	position: absolute;
+    width: 42px;
+    height: 42px;
+	background-image:url("../images/btn_a_lower.png");	
+    visibility:hidden;
+    cursor:pointer;
+	
+}
+
+
+
+#letter_button_hilight{
+	top:108px;
+	left:31px;
+	position: absolute;
+    width: 50px;
+    height: 50px;
+	background-image:url("../images/hilight.png");
+	visibility:hidden;
+}
+
+
+
+
+#A_letter_button{
+	top:112px;
+	left:34px;
+	position: absolute;
+    width: 43px;
+    height: 41px;
+	background-image:url("../images/btn_a_upper.png");
+	visibility:hidden;
+	cursor:pointer;
+}
+
+
+		
+#AA_letter_button{
+  	top:112px;
+	left:34px;
+	position: absolute;
+    width: 43px;
+    height: 41px;
+	background-image:url("../images/btn_aa_cap.png");	
+	visibility:hidden;
+	cursor:pointer;
+}	
+
+#Aa_letter_button{
+	top:162px;
+	left:34px;
+	position: absolute;
+    width: 42px;
+    height: 42px;
+	background-image:url("../images/btn_aa_mix.png");
+	visibility:hidden;
+	cursor:pointer;
+}		
+
+#aa_letter_button{
+	top:212px;
+	left:34px;
+	position: absolute;
+    width: 42px;
+    height: 42px;
+	background-image:url("../images/btn_aa_lower.png");
+	visibility:hidden;
+	cursor:pointer;
+}
+
+.psquare {
+ 	position: absolute;
+    width: 116px;
+    height: 116px;
+	background-image:url("../images/punnet_back.png");
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	opacity:1; 	
+}
+
+#select_tray{
+	left:10px;
+	top:72px;
+	position: absolute;
+    width: 92px;
+    height: 402px;
+	background-image:url("../images/select_tray.png");	
+		/*visibility:hidden;*/
+		/*opacity:0.5;*/
+	
+}
+
+
+#psquare_1 {
+	top:90px;
+	left:155px;	
+}
+
+
+#psquare_2 {
+	top:90px;
+	left:417px;	
+}
+
+
+#psquare_3 {
+	top:90px;
+	left:679px;	
+}
+
+#psquare_4 {
+	top:218px;
+	left:155px;	
+}
+
+#psquare_5 {
+	top:218px;
+	left:417px;	
+}
+
+#psquare_6 {
+	top:218px;
+	left:679px;	
+}
+
+
+#psquare_7 {
+	top:346px;
+	left:155px;	
+}
+
+#psquare_8 {
+	top:346px;
+	left:417px;	
+}
+
+#psquare_9 {
+	top:346px;
+	left:679px;	
+}
+
+
+.outside_textbox {
+	position: absolute;
+    width: 27px;
+    height: 27px;
+	background-image:url("../images/color_bar_F.png");
+    /*background-position: -54px 0px; green is this*/
+    background-position: 0px 0px;
+    /*background-position: -162px 0px;*/
+	line-height:30px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor:pointer;
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    font-size:16px;
+    color:#330033;
+}
+
+.outside_topleft {
+	top:0px;
+	left:35px;	
+}
+
+
+.outside_topright {
+	top:0px;
+	left:78px;	
+}
+
+
+.outside_lefttop {
+	top:37px;
+	left:-1px;	
+}
+
+.outside_leftbot {
+	top:79px;
+	left:-1px;	
+}
+
+
+
+.inside_textbox {
+ 	position: absolute;
+    width: 27px;
+    height: 27px;
+	background-image:url("../images/color_bar_F.png");
+    /*background-position: -108px 0px; it is invisible at start!*/
+    /* was 108px*/
+    background-position: 0px 0px;
+	line-height:30px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor:pointer;
+	font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    font-size:14px;
+    /*color:#CCCCCC;	*/
+    color:black;
+	
+}
+
+.inside_topleft{
+	top:38px;
+	left:36px;	
+	
+}
+
+.inside_topright{
+	top:38px;
+	left:79px;	
+	
+}
+
+.inside_botleft{
+	top:79px;
+	left:36px;	
+	
+}
+
+.inside_botright{
+	top:79px;
+	left:79px;	
+	
+}
+
+
+
+.geno_leftxxx{
+	
+	
+}
+
+
+#fly_tray
+{
+	left:165px;
+	top:535px;
+	position: absolute;
+    width: 687px;
+    height: 160px;
+	background-image:url("../images/fly_tray.png");
+	visibility:hidden;
+}
+
+.pheno_hilite{
+	left:-8px;
+	top:-10px;
+	position: absolute;
+    width: 124px;
+    height: 70px;
+	background-image:url("../images/redpheno_hilite.png");
+	visibility:hidden;
+}
+
+
+/*______________________________________________________________________________*/
+
+html {
+    height: 100%;
+	background-color:#8F9572; 
+}
+
+
+body {
+    margin: 0;
+    text-align: center;
+    height: 100%;
+}
+
+/*______________________________________________________________________________*/
+
+#main_area {
+	position: relative;
+    font-size: 20px;
+    width: 1024px;
+    height: 700px;
+    margin-left: auto; 
+    margin-right: auto; 
+	/*background-color:#000000; 
+    background-image:url('../images/comp.png');
+    background-image:url('../images/background.jpg');*/
+
+    overflow:hidden;
+}
+
+#loadingIcon {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #000 url('../images/atom.gif') no-repeat center center;
+                z-index: 500;
+				left:0;
+				bottom: 0px;
+}
+
+ .body_background3 {
+	background: #8F9572;
+	background-image:url('../images/bkg2.jpg');
+	background-repeat:repeat; 		
+	/* background-size: 100%;*/
+	/*padding-top: 50px;*/
+}
+
+
+
+ .body_background4 {
+	background: #8F9572;
+	background-image:url('../images/BKG_pattern.jpg');
+	background-repeat:repeat; 		
+	/* background-size: 100%;*/
+	/*padding-top: 50px;*/
+}

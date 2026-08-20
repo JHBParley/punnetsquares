@@ -1,0 +1,353 @@
+
+/*** FAKE NAV BAR ELEMENTS  ***/
+
+#new_help_pointer1
+{
+	top:0px;
+	left:-36px;
+	height:39px;
+	width:36px;
+	position:absolute;
+	background:url('../images/arrows1.png');
+	background-repeat:no-repeat;	
+	background-position:0px 0px ;
+	
+}
+
+#new_close_info_box
+{
+	top:0px;
+	left:0px;
+
+	width:21px;
+	height:21px;
+	position:absolute;
+	background:url('../images/small_info_button.png');
+	cursor:pointer; 
+	
+}
+
+#new_help_panel_bkg
+{
+	top:100px;
+	left:100px;
+
+	width:200px;
+	height:5px;
+	position:absolute;
+	background:url('../images/small_helppanel_bkg.png');
+	visibility:hidden;
+		
+}
+
+#new_help_panel_type
+{
+	position:absolute;
+	font-family: Helvetica, Arial, Sans-Serif;
+	color:white;
+	text-align:left;
+	font-size:10pt;
+	top:10px;
+	left:10px;
+	width:180px;
+/*	height:1px;
+	overflow:hidden; */
+}
+
+#lightbox {
+	top:0px;
+	left:0px;
+	right: 0px;
+	bottom: 0px;
+	width:100%;
+	height:100%;
+	visibility:hidden;
+	position:absolute; 
+	background:url('../images/10_10.png');
+	
+}
+
+
+/************************************************************************/
+
+#interface_help_close_button
+{
+	top:-30px;
+	left:980px;
+   	background:url('../images/help_on.png');
+	width:33px;
+	height:32px;
+	position:absolute;
+	/*visibility:hidden;*/
+  cursor:pointer;
+}
+
+#interface_help
+{
+	top:80px;
+	left:0px;
+   	background:url('../images/UI.png');
+	width:1041px;
+	height:469px;
+	position:absolute;
+	/*visibility:hidden;*/
+	visibility:hidden;
+	
+}
+
+#interface_help_open_button
+{
+	top:50px;
+	left:980px;
+   	background:url('../images/help_off.png');
+	width:33px;
+	height:32px;
+	position:absolute;
+	/*visibility:hidden;*/
+	cursor:pointer;
+	
+}
+
+#content_help
+{
+	top:60px;
+	left:5px;
+   	background:url('../images/info.png');
+	width:973px;
+	height:468px;
+	position:absolute;
+	visibility:hidden;
+}
+
+#content_help_close_button
+{
+	top:30px;
+	left:977px;
+   	background:url('../images/bulb_on.png');
+	width:33px;
+	height:32px;
+	position:absolute;
+	/*visibility:hidden;*/
+	cursor:pointer;
+	
+}
+
+#content_help_open_button
+{
+	
+	top:90px;
+	left:981px;
+   	background:url('../images/bulb_off.png');
+	width:33px;
+	height:32px;
+	position:absolute;
+	cursor:pointer;
+}
+
+#threshold_popup
+{
+	top:180px;
+	left:320px;
+	background:url('../images/popup.png');
+	width:377px;
+	height:278px;
+	position:absolute;
+	visibility:hidden;
+}
+
+#popup_close_button
+{
+	top:235px; /*230 */
+	left:290px;
+	background:url('../images/arrow_field.png');
+	width:62px;
+	height:32px;
+	position:absolute;
+    /* visibility:hidden; */
+    cursor:pointer;
+}
+
+#help_panels_layer
+{
+	top:0px;
+	left:0px;
+	right: 0px;
+	bottom: 0px;
+	width:100%;
+	height:100%;
+	position:absolute;
+	/* background-color: #f0f; */
+    /* background-color:#C0C0C0; 
+	opacity:0.3;*/
+	visibility:hidden;
+	/*cursor:pointer; */
+	z-index: 400;
+	
+}
+
+.help_panels_color_layer
+{
+	top:0px;
+	left:0px;
+	right: 0px;
+	bottom: 0px;
+	width:100%;
+	height:100%;
+	position:absolute;
+	/* background-color: #f0f; */
+	/*background-color:#C0C0C0; 
+	opacity:0.3; */
+	background:url('../images/10_10.png');
+	
+}
+
+
+.topMuscleHelpPanel
+{
+	top:120px;
+	left:566px;
+	width:246px;
+	height:265px;
+	position:absolute;
+	background:url('../images/callout_3.png');
+	 visibility:hidden;
+}
+
+.botMuscleHelpPanel
+{
+	top:195px;
+	left:572px;
+	width:281px;
+	height:307px;
+	position:absolute;
+	background:url('../images/callout_6.png');
+	visibility:hidden;
+}
+
+.midMuscleHelpPanel
+{
+	top:181px;
+	left:564px;
+	width:247px;
+	height:240px;
+	position:absolute;
+	background:url('../images/callout_5.png');
+	visibility:hidden;
+}
+
+
+.topBalloonHelpPanel
+{
+	top:118px;
+	left:52px;
+	width:246px;
+	height:281px;
+	position:absolute;
+	background:url('../images/callout_1.png');
+	 visibility:hidden;
+}
+
+.botBalloonHelpPanel
+{
+	top:260px;
+	left:60px;
+	width:281px;
+	height:238px;
+	position:absolute;
+	background:url('../images/callout_4.png');
+	visibility:hidden;
+}
+
+.midBalloonHelpPanel
+{
+	top:232px;
+	left:50px;
+	width:246px;
+	height:186px;
+	position:absolute;
+	background:url('../images/callout_2.png');
+	visibility:hidden;
+}
+
+.help_button
+{
+
+	
+}
+
+
+
+/*buttons that trigger info help layer */
+
+
+#balloon_top
+{
+	top:100px;
+	left:30px;
+	background:url('../images/info_icon.png');
+	width:24px;
+	height:23px;
+	position:absolute;
+	cursor:pointer;
+}
+
+
+#balloon_middle
+{
+	top:420px;
+	left:30px;	
+	background:url('../images/info_icon.png');
+	width:24px;
+	height:23px;
+	position:absolute;
+	cursor:pointer;
+}
+
+
+
+#balloon_bottom
+{
+	top:500px;
+	left:30px;
+	background:url('../images/info_icon.png');
+	width:24px;
+	height:23px;
+	position:absolute;	
+	cursor:pointer;
+}
+
+#muscle_top
+{
+	top:100px;
+	left:542px;
+	background:url('../images/info_icon.png');
+	width:24px;
+	height:23px;
+	position:absolute;
+	cursor:pointer;
+}
+
+
+#muscle_middle
+{
+	top:420px;
+	left:542px;	
+	background:url('../images/info_icon.png');
+	width:24px;
+	height:23px;
+	position:absolute;
+	cursor:pointer;
+}
+
+
+
+#muscle_bottom
+{
+	top:500px;
+	left:542px;	
+	background:url('../images/info_icon.png');
+	width:24px;
+	height:23px;
+	position:absolute;
+	cursor:pointer;
+}
